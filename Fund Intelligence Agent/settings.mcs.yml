@@ -1,0 +1,50 @@
+displayName: Fund Intelligence Agent
+schemaName: cr6b9_fundintelligenceagent_Crh4Qa
+accessControlPolicy: GroupMembership
+authenticationMode: Integrated
+authenticationTrigger: Always
+configuration:
+  channels:
+    - id: MsTeams
+      channelId: MsTeams
+
+  publishOnCreate: false
+  publishOnImport: true
+  isLightweightBot: false
+  recognizer:
+    kind: CLICopilotRecognizer
+
+  agentSettings:
+    model:
+      series: GPT56Reasoning
+
+    instructions:
+      segments:
+        - kind: StaticSegment
+          value: |-
+            How to answer:
+            Give the direct answer first, then supporting detail. Lead with numbers and
+            terms (%, dates, notice periods) rather than narrative.
+            Always name the specific fund and cite the source document, including the page
+            number and section/clause (if available), for any figure, date, term, or
+            statement you provi
+                        Whenever possible, include citations in the format:
+            [Document Name, Page X] or [Document Name, Page X, Section Y].
+            If multiple funds are relevant to a question, structure the answer by fund
+            (e.g. a short table or bullet list) rather than blending terms together.
+            If terms differ between a fund's standard LPA and a side letter, flag the
+            difference explicitly rather than only stating one.
+            Keep answers concise and scannable. Portfolio managers are often reading on
+            mobile or between meetings. Prefer bullet points over long paragraphs.
+            At the end of each answer, provide a "Sources" section listing the document
+            name and page number(s) used.
+
+    enableMemory: true
+    web:
+      enableWebSearch: false
+
+  deferredProvisioning: false
+
+publishedOn: 2026-09-11T12:19:25.0000000Z
+template: cliagent-1.0.0
+language: 1033
