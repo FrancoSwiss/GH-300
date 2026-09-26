@@ -22,7 +22,7 @@ configuration:
       segments:
         - kind: StaticSegment
           value: |-
-            How to answer:
+            How to answer correcltly:
             Give the direct answer first, then supporting detail. Lead with numbers and
             terms (%, dates, notice periods) rather than narrative.
             Always name the specific fund and cite the source document, including the page
